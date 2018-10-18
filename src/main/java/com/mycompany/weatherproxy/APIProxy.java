@@ -23,6 +23,7 @@ import javax.ws.rs.core.Response;
 public class APIProxy {
     @GET
     @Path("/{param}")
+    
     public Response GetWeather(@QueryParam("city") String city, @PathParam("key")String key){
         key = "854d8956603ab7dd275d8b29147913ac";
         String URL= "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&mode=json&appid="+key;
