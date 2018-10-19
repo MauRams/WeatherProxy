@@ -17,20 +17,22 @@ import javax.ws.rs.core.Response;
 
 /**
  *
- * @author Maurice
+ * @author Arezki
  */
-@Path("/weather")
-public class APIProxy {
+@Path("/w")
+public class Proxy {
     @GET
     @Path("/{city}")
+    
+    // try in your local hot: http://localhost:49000/api/w/paris
     public Response GetWeather(@PathParam("city") String city){
         String key = "854d8956603ab7dd275d8b29147913ac";
-        String URL= "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&mode=json&appid="+key;
-        System.out.print("The URL is : " + URL);
-        System.out.println(city);
+        String URL="http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=fa859e6383804088539dfe06a49a5832";
+  
+        System.out.println(" The link is  "+URL);
         Client c = ClientBuilder.newClient();
         Response r = c.target(URL).request().get();
         return r;
     }
-    
+
 }
